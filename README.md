@@ -1,3 +1,5 @@
 # Will and Abi's Webpage
-##Install Development Environment 
-To install development environment run ```npm install```
+##Install 
+To install run ```npm install```
+
+This will install all the necessary files and copy the important ones to the public directory.
