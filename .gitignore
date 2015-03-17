@@ -16,13 +16,28 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
+# node-waf configuration
+.lock-wscript
+
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
 # Dependency directory
-# Commenting this out is preferred by some people, see
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
 
-# Users Environment Variables
-.lock-wscript
+# Debug log from npm
+npm-debug.log
+
+bower_components
+*.sublime-project
+*.sublime-workspace
+public/css/bootstrap-theme.min.css
+public/css/bootstrap.min.css
+public/fonts
+public/js/angular-resource.min.js
+public/js/angular-route.min.js
+public/js/angular.min.js
+public/js/bootstrap.min.js
+public/js/jquery.min.js
+
