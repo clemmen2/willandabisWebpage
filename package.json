@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "install": "./node_modules/.bin/bower install && grunt --no-color default"
+    "install": "./node_modules/.bin/bower install; grunt --no-color default"
   },
   "dependencies": {
     "body-parser": "~1.10.2",
