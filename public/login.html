@@ -1,0 +1,8 @@
+<div class ='col-sm-6 col-sm-offset-3' ng-controller='loginCtrl as login'>
+<form class='form-signin'>
+	<h2 class='form-signin-heading'>Enter Passkey</h2>
+	<h4 ng-if='login.err.length > 0'>{{login.err[0]}}</h4>
+	<input type='password' id='pass' class='form-control' placeholder="passkey" required ng-model='login.pass'>
+	<button class ='btn btn-lg btn-primary btn-block' type='submit' ng-click='login.submit()'>Sign in </button>
+</form>
+</div>

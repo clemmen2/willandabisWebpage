@@ -1,0 +1,15 @@
+<div class='col-md-offset-2 col-md-8' ng-controller='guestsCtrl as list'>
+	<input class='form-control' type='text' placeholder='Search' ng-model='search'>
+	<table class='table'>
+		<tr>
+			<th ng-click='list.predict = "lastName";list.reverse=!list.reverse' ng-class='lastClass' ng-mouseenter='lastClass = "headHover"' ng-mouseleave= 'lastClass= ""'>Last Name</th>
+			<th ng-click='list.predict = "firstName";list.reverse=!list.reverse' ng-class='firstClass' ng-mouseenter='firstClass = "headHover"' ng-mouseleave= 'firstClass= ""'>First Name</th>
+			<th ng-click='list.predict = "position";list.reverse=!list.reverse' ng-class='roleClass' ng-mouseenter='roleClass = "headHover"' ng-mouseleave= 'roleClass= ""'>Role</th>
+		</tr>
+		<tr ng-repeat='guest in list.guests|orderBy:list.predict:list.reverse|filter: search' ng-click='list.click(guest._id)' ng-class='tblHoverClass' ng-mouseenter='tblHoverClass = "highlightTable"' ng-mouseleave = 'tblHoverClass = ""' ng-class-even='"tblEven"' ng-class-odd='"tblOdd"'>
+			<td>{{guest.lastName}}</td>
+			<td>{{guest.firstName}}</td>
+			<td>{{guest.position}}</td>
+		</tr>
+	</table>
+</div>

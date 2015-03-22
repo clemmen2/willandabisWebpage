@@ -1,0 +1,17 @@
+<div ng-controller='guestCtrl as list'>
+
+	<div class="panel panel-default">
+		<div class="panel-heading"><h1>{{list.guest.lastName}}, {{list.guest.firstName}} <small>{{list.guest.position}}</small></h1></div>
+		<div class="panel-body">
+			<dl class="dl-horizontal">
+			  <dt ng-if='list.guest.phone !== ""'>Phone</dt>
+			  <dd ng-if='list.guest.phone !== ""'>{{list.guest.phone}}</dd>
+			  <dt ng-if='list.guest.address !== ""'>Address</dt>
+			  <dd ng-if='list.guest.address !== ""'>{{list.guest.address}}<br>{{list.guest.city}} {{list.guest.state}}, {{list.guest.zip}}</dd>
+			  <dt>RSVP</dt>
+			  <dd>{{list.guest.RSVP == "TRUE"?"Yes":"No"}}
+			</dl>
+			<button class='btn btn-primary' ng-click='list.back()'>Back</button>
+		</div>
+	</div>
+</div>

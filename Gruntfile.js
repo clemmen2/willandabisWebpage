@@ -11,10 +11,11 @@ module.exports = function(grunt){
 			js: {
 				files: [
 					{cwd:'bower_components/bootstrap/dist/',expand: true,src:['**/*.min.js'],dest:'public/'},
-					{cwd:'bower_components/jquery/dist/',expand: true,src:['**/*.min.js'],dest:'public/js'},
-					{cwd:'bower_components/angular/',expand: true,src:['**/*.min.js'],dest:'public/js'},
-					{cwd:'bower_components/angular-resource/',expand: true,src:['**/*.min.js'],dest:'public/js'},
-					{cwd:'bower_components/angular-route/',expand: true,src:['**/*.min.js'],dest:'public/js'},
+					{cwd:'bower_components/jquery/dist/',expand: true,src:['**/*.min.js*'],dest:'public/js'},
+					{cwd:'bower_components/jquery/dist/',expand: true,src:['**/*.min*'],dest:'public/js'},
+					{cwd:'bower_components/angular/',expand: true,src:['**/*.min.js*'],dest:'public/js'},
+					{cwd:'bower_components/angular-resource/',expand: true,src:['**/*.min.js*'],dest:'public/js'},
+					{cwd:'bower_components/angular-route/',expand: true,src:['**/*.min.js*'],dest:'public/js'},
 					{cwd:'bower_components/html5shiv/dist/',expand: true,src:['**/*.min.js'],dest:'public/js'}
 				]
 			},
