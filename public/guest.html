@@ -9,7 +9,9 @@
 			  <dt ng-if='list.guest.address !== ""'>Address</dt>
 			  <dd ng-if='list.guest.address !== ""'>{{list.guest.address}}<br>{{list.guest.city}} {{list.guest.state}}, {{list.guest.zip}}</dd>
 			  <dt>RSVP</dt>
-			  <dd>{{list.guest.RSVP == "TRUE"?"Yes":"No"}}
+			  <dd>{{list.guest.RSVP == "TRUE"?"Yes":"No"}}</dd>
+			  <dt ng-if='list.family.length > 0'>Family Members</dt>
+			  <dd ng-if='list.family.length > 0'><ul class='list-inline'><li ng-repeat='member in list.family'><a href='#/guest/{{member._id}}'>{{member.firstName}}</a></li></ul></dd>
 			</dl>
 			<button class='btn btn-primary' ng-click='list.back()'>Back</button>
 		</div>
