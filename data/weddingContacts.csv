@@ -62,3 +62,10 @@ _id,lastName,firstName,brideGroom,relation,position,phone,address,state,city,zip
 61,Love,Katie,Bride,Friend,Bridesmaid,8432457957,,,,,FALSE
 62,Versluys,Mary,Bride,Family,Bridesmaid,8436156636,,,,,FALSE
 63,Newman,Shayla,Groom,Friend,Best Man,8434096281,,,,,FALSE
+64,Orwick,Kendal,Bride,Family,Guest,,,,,,FALSE
+65,Orwick,Dave,Bride,Family,Guest,,,,,,FALSE
+66,Orwick,Zack,Bride,Family,Guest,,,,,,FALSE
+67,Orwick,Luke,Bride,Family,Guest,,,,,,FALSE
+68,Brown,Ruth,Bride,Family,Guest,,,,,,FALSE
+69,Neal,Betty,Bride,Family,Guest,,,,,,FALSE
+70,Webster,Richard,Bride,Family,Guest,,,,,,FALSE
