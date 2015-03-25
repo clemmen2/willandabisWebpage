@@ -52,6 +52,16 @@ angular.module('ourApp', ['ngRoute'])
 			})[0])
 		})
 	};
+	fun.getFamily = function(id,callback) {
+		fun.getGuests(function(data){
+			callback(data.filter(function(guest){
+				if(guest.familyId == id)
+					return true;
+				else
+					return false;
+			}))
+		})
+	};
 	return fun;
 }])
 .controller('guestsCtrl', ['$location','guests', function($location,guests){
@@ -70,6 +80,16 @@ angular.module('ourApp', ['ngRoute'])
 	guests.getGuest($routeParams.guestId,function(guest){
 		guest.phone = guest.phone.replace(re, '($1)$2-$3')
 		that.guest = guest;
+		guests.getFamily(that.guest.familyId,function(family){
+			that.family = family.filter(function(member){
+				if(that.guest._id == member._id)
+					return false;
+				else
+					return true;
+			}).map(function(member){
+				return {'_id':member._id,'lastName':member.lastName,'firstName':member.firstName};
+			});
+		})
 	});
 	that.back = function(){
 		$location.path('/guest');
