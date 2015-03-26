@@ -4,11 +4,11 @@ angular.module('ourApp', ['ngRoute'])
 	.when('/',{
 		templateUrl: 'main.html'
 	})
-	.when('/will',{
-		templateUrl: 'will.html'
+	.when('/about',{
+		templateUrl: 'about.html'
 	})
-	.when('/abi',{
-		templateUrl: 'abi.html'
+	.when('/event',{
+		templateUrl: 'event.html'
 	})
 	.when('/guest',{
 		templateUrl: 'guests.html'
@@ -63,6 +63,9 @@ angular.module('ourApp', ['ngRoute'])
 		})
 	};
 	return fun;
+}])
+.controller('mainPage', [function(){
+	this.countDown = '0 Days 0 Hours 0 Mins';
 }])
 .controller('guestsCtrl', ['$location','guests', function($location,guests){
 	var that = this;
