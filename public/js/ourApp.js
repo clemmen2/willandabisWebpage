@@ -65,7 +65,7 @@ angular.module('ourApp', ['ngRoute'])
 	return fun;
 }])
 .controller('mainPage', [function(){
-	this.countDown = '0 Days 0 Hours 0 Mins';
+
 }])
 .controller('guestsCtrl', ['$location','guests', function($location,guests){
 	var that = this;
