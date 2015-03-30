@@ -1,4 +1,4 @@
-angular.module('ourApp', ['ngRoute'])
+angular.module('ourApp', ['ngRoute','timer','akoenig.deckgrid'])
 .config(['$routeProvider', function($routeProvider){
 	$routeProvider
 	.when('/',{
@@ -64,8 +64,12 @@ angular.module('ourApp', ['ngRoute'])
 	};
 	return fun;
 }])
-.controller('mainPage', [function(){
-
+.controller('mainPage', ['$http','$scope',function($http,$scope){
+	var that = this;
+	$http.get('/api/photos').
+		success(function(data, status, headers, config){
+			that.photos = data;
+		});
 }])
 .controller('guestsCtrl', ['$location','guests', function($location,guests){
 	var that = this;

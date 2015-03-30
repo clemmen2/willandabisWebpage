@@ -13,13 +13,14 @@ module.exports = function(grunt){
 					{cwd:'bower_components/bootstrap/dist/',expand: true,src:['**/*.min.js'],dest:'public/'},
 					{cwd:'bower_components/jquery/dist/',expand: true,src:['**/*.min.js*'],dest:'public/js'},
 					{cwd:'bower_components/jquery/dist/',expand: true,src:['**/*.min*'],dest:'public/js'},
-					{cwd:'bower_components/angular/',expand: true,src:['**/*.min.js*'],dest:'public/js'},
-					{cwd:'bower_components/angular-resource/',expand: true,src:['**/*.min.js*','*.min.js.gzip'],dest:'public/js'},
+					{cwd:'bower_components/angular/',expand: true,src:['**/*.min.js*','!*.min.js.gzip'],dest:'public/js'},
+					{cwd:'bower_components/angular-resource/',expand: true,src:['**/*.min.js*'],dest:'public/js'},
 					{cwd:'bower_components/angular-route/',expand: true,src:['**/*.min.js*'],dest:'public/js'},
 					{cwd:'bower_components/html5shiv/dist/',expand: true,src:['**/*.min.js'],dest:'public/js'},
 					{cwd:'bower_components/angular-timer/dist/',expand: true,src:['**/*.min.js'],dest:'public/js'},
 					{cwd:'bower_components/humanize-duration/',expand: true,src:['**/*.js'],dest:'public/js'},
-					{cwd:'bower_components/momentjs/min/',expand: true,src:['**/*.min.js','!moment-with-locales.min.js'],dest:'public/js'}
+					{cwd:'bower_components/momentjs/min/',expand: true,src:['**/*.min.js','!moment-with-locales.min.js'],dest:'public/js'},
+					{cwd:'bower_components/angular-deckgrid/',expand: true,src:['**/*.js'],dest:'public/js'}
 				]
 			},
 			misc: {

@@ -4,7 +4,7 @@
 		<p>Welcome family or friend to our wedding website. I hope Will's hobby entertains you or help you in any way. Enjoy looking around and we will see you on our wedding day!</p>
 	</div>
 	<div>
-		<timer end-time="1451628000000">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer>
+		<h3 class='text-center'><timer end-time='1460228400000'>{{days}} day{{daysS}}, {{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}} second{{secondsS}}</timer></h3>
 	</div>
 	<div class='row'>
 		<div class='col-md-6'>
@@ -26,7 +26,7 @@
 					<h1>The Unexpected Question</h1>
 				</div>
 				<div class='panel-body'>
-					<p>Christmas Eve, the day the CRAZIES take pictures with the man in the red suit. Being the drummer boy's holiday he was invited. They both were dressed in their Sunday best because the mama bear said so. Little did the crazy gal know, the drummer boy and mama bear conspired an unexpected plot. Later that evening the couple went to dinner with the Captain and his crew. After they ate their grub they sailed forth through the lights of the holiday. It was getting late and the couple had plans to meet up with the crazies. They walk in with the smell of Christmas in the air. Mama bear starts passing out candles and seating everyone in a circle. Little did the clueless girl know mama bear and the drummer boy's conspiracy was unraveling. This was the drummer boy's first time so mama bear explains. 'Drummer boy I want you to sit on your girl's left side. Papa bear I want you to sit on her right. Now crazy gal, you start off by saying how papa bear lights up your world, then light his candle. This keeps going till everyone's candle is lit.' Their were cameras and videos taken since mama bear loves pictures, the clueless girl did not expect anything out of the ordinary. It was drummer boy's turn to explain why his world is so bright. 'Little clueless girl, you are not only my girlfriend but my best friend. You have been there through all of my ups and downs and will you please stand up.' At this point in time the clueless girl started to put the puzzle pieces together. She was shocked when he got down on one knee and pulled out a little box. Inside this little box was something priceless. As he opens the box he says, 'Will you marry me?' The not so clueless girl starts to get bubbly and looks away while it was all happening. She eventually says 'YES.' As the night went on they told the world the good news.</p>   
+					<p>Christmas Eve, the day the CRAZIES take pictures with the man in the red suit. Being the drummer boy's holiday he was invited. They both were dressed in their Sunday best because the mama bear said so. Little did the crazy gal know, the drummer boy and mama bear conspired an unexpected plot. Later that evening the couple went to dinner with the Captain and his crew. After they ate their grub they sailed forth through the lights of the holiday. It was getting late and the couple had plans to meet up with the crazies. They walk in with the smell of Christmas in the air. Mama bear starts passing out candles and seating everyone in a circle. Little did the clueless girl know mama bear and the drummer boy's conspiracy was unraveling. This was the drummer boy's first time so mama bear explains.<img src='img/surprise.jpg' alt="Cute" class="img-thumbnail" width='50%' height='50%' style='float:right;'> 'Drummer boy I want you to sit on your girl's left side. Papa bear I want you to sit on her right. Now crazy gal, you start off by saying how papa bear lights up your world, then light his candle. This keeps going till everyone's candle is lit.' Their were cameras and videos taken since mama bear loves pictures, the clueless girl did not expect anything out of the ordinary. It was drummer boy's turn to explain why his world is so bright. 'Little clueless girl, you are not only my girlfriend but my best friend. You have been there through all of my ups and downs and will you please stand up.' At this point in time the clueless girl started to put the puzzle pieces together. She was shocked when he got down on one knee and pulled out a little box. Inside this little box was something priceless. As he opens the box he says, 'Will you marry me?' The not so clueless girl starts to get bubbly and looks away while it was all happening. She eventually says 'YES.' As the night went on they told the world the good news.</p>   
 				</div>
 			</div>
 		</div>
@@ -53,9 +53,11 @@
 		</div>
 	</div>
 	<div class='row'>
-		<div class='col-md-4'>
-			<img src='img/cute.jpg' alt="Cute" class="img-thumbnail">
-		</div>
+		<div deckgrid class="deckgrid" source="main.photos">
+    		<div>
+				<img ng-src="img/{{card.url}}" alt="{{card.url}}" class="img-thumbnail">
+			</div>
+    	</div>
 	</div>
 
 </div>

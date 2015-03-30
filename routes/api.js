@@ -26,4 +26,11 @@ router.post('/login', function(req, res, next){
 		res.sendStatus(401);
 	}
 });
+router.get('/photos', function(req,res,next) {
+	fs.readdir(path.resolve(__dirname+'/../public/img/'),function(err,files){
+		res.send(files.map(function(link){
+			return {url:link};
+		}));
+;	});
+});
 module.exports = router;
