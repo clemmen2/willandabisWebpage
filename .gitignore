@@ -40,10 +40,12 @@ public/js/angular-route.min.js
 public/js/angular-resource.min.js.map
 public/js/angular-route.min.js.map
 public/js/angular.min.js
+public/js/angular.min.js.map
+public/js/angular.min.js.gzip
 public/js/angular-timer.min.js
 public/js/bootstrap.min.js
 public/js/jquery.min.js
-public/js/jquery.min.js.map
+public/js/jquery.min.map
 public/js/html5shiv-printshiv.min.js
 public/js/html5shiv.min.js
 public/js/humanize-duration.js
