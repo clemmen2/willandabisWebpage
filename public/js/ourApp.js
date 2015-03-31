@@ -4,12 +4,6 @@ angular.module('ourApp', ['ngRoute','timer','akoenig.deckgrid'])
 	.when('/',{
 		templateUrl: 'main.html'
 	})
-	.when('/about',{
-		templateUrl: 'about.html'
-	})
-	.when('/event',{
-		templateUrl: 'event.html'
-	})
 	.when('/guest',{
 		templateUrl: 'guests.html'
 	})
@@ -18,6 +12,9 @@ angular.module('ourApp', ['ngRoute','timer','akoenig.deckgrid'])
 	})
 	.when('/login',{
 		templateUrl: 'login.html'
+	})
+	.when('/photo/:photoId',{
+		templateUrl: 'image.html'
 	})
 }])
 .run(['$rootScope', function($rootScope){
@@ -64,12 +61,27 @@ angular.module('ourApp', ['ngRoute','timer','akoenig.deckgrid'])
 	};
 	return fun;
 }])
-.controller('mainPage', ['$http','$scope',function($http,$scope){
+.service('photos', ['$http',function($http){
+	photoFunc={};
+	images=[];
+	photoFunc.getPhotos = function(callback){
+		if(images.length === 0){
+			$http.get('/api/photos').
+			success(function(data, status, headers, config){
+				images=data;
+				callback(data);
+			});
+		}else{
+			callback(images);
+		};
+	};
+	return photoFunc;
+}])
+.controller('mainPage', ['photos', function(photos){
 	var that = this;
-	$http.get('/api/photos').
-		success(function(data, status, headers, config){
-			that.photos = data;
-		});
+	photos.getPhotos(function(images){
+		that.photos=images;
+	});
 }])
 .controller('guestsCtrl', ['$location','guests', function($location,guests){
 	var that = this;
@@ -80,6 +92,16 @@ angular.module('ourApp', ['ngRoute','timer','akoenig.deckgrid'])
 	that.click = function(id){
 		$location.path('/guest/'+id)
 	};
+}])
+.controller('photoCtrl',['$routeParams','photos',function($routeParams,photos){
+	var that = this;
+	photos.getPhotos(function(images){
+		that.photos = images.filter(function(image){
+			if (image._id == $routeParams.photoId){
+				return true;
+			}
+		});
+	})
 }])
 .controller('guestCtrl',['$location', '$routeParams', 'guests', function($location,$routeParams,guests){
 	var that = this;

@@ -28,8 +28,8 @@ router.post('/login', function(req, res, next){
 });
 router.get('/photos', function(req,res,next) {
 	fs.readdir(path.resolve(__dirname+'/../public/img/'),function(err,files){
-		res.send(files.map(function(link){
-			return {url:link};
+		res.send(files.map(function(link,index){
+			return {_id:index,url:link};
 		}));
 ;	});
 });

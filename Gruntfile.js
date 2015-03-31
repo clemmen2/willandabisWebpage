@@ -20,7 +20,7 @@ module.exports = function(grunt){
 					{cwd:'bower_components/angular-timer/dist/',expand: true,src:['**/*.min.js'],dest:'public/js'},
 					{cwd:'bower_components/humanize-duration/',expand: true,src:['**/*.js'],dest:'public/js'},
 					{cwd:'bower_components/momentjs/min/',expand: true,src:['**/*.min.js','!moment-with-locales.min.js'],dest:'public/js'},
-					{cwd:'bower_components/angular-deckgrid/',expand: true,src:['**/*.js'],dest:'public/js'}
+					{cwd:'bower_components/angular-deckgrid/',expand: true,src:['*.js'],dest:'public/js'}
 				]
 			},
 			misc: {
@@ -33,11 +33,22 @@ module.exports = function(grunt){
 			css:['public/css/bootstrap*'],
 			js:['public/js/angular*','public/js/bootstrap*', 'public/js/jquery*'],
 			fonts: ['public/fonts']
+		},
+		imagemin: {
+			images:{
+				files: [{
+        			expand: true,                  // Enable dynamic expansion
+			        cwd: 'public/img/',                   // Src matches are relative to this path
+			        src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+			        dest: 'public/img/'                  // Destination path prefix
+      }]
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
 
 	grunt.registerTask('default', ['copy']);
 
