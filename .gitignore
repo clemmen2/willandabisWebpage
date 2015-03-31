@@ -52,5 +52,7 @@ public/js/humanize-duration.js
 public/js/locales.min.js
 public/js/moment.min.js
 public/js/specs
+public/js/exif.js
+public/img/*_original
 
 

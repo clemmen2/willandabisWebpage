@@ -16,6 +16,9 @@ angular.module('ourApp', ['ngRoute','timer','akoenig.deckgrid'])
 	.when('/photo/:photoId',{
 		templateUrl: 'image.html'
 	})
+	.otherwise({
+		templateUrl: 'error.html'
+	})
 }])
 .run(['$rootScope', function($rootScope){
 	$rootScope.title='Will and Abi';
@@ -75,9 +78,23 @@ angular.module('ourApp', ['ngRoute','timer','akoenig.deckgrid'])
 			callback(images);
 		};
 	};
+	photoFunc.getPhotoCom = function(id,callback){
+		photoFunc.getPhotos(function(intImages){
+			foundImage = intImages.filter(function(image){
+				if(image._id == id)
+					return true;
+				else
+					return false;
+			})[0];
+			$http.get('/api/photo/'+id).
+			success(function(data,status,headers,config){
+				callback(data);
+			})
+		})
+	}
 	return photoFunc;
 }])
-.controller('mainPage', ['photos', function(photos){
+.controller('mainCtrl', ['photos', function(photos){
 	var that = this;
 	photos.getPhotos(function(images){
 		that.photos=images;
@@ -96,12 +113,15 @@ angular.module('ourApp', ['ngRoute','timer','akoenig.deckgrid'])
 .controller('photoCtrl',['$routeParams','photos',function($routeParams,photos){
 	var that = this;
 	photos.getPhotos(function(images){
-		that.photos = images.filter(function(image){
+		that.photo = images.filter(function(image){
 			if (image._id == $routeParams.photoId){
 				return true;
 			}
-		});
+		})[0];
 	})
+	photos.getPhotoCom($routeParams.photoId,function(imageCaption){
+		that.photo.comment = imageCaption.comment;
+	});
 }])
 .controller('guestCtrl',['$location', '$routeParams', 'guests', function($location,$routeParams,guests){
 	var that = this;

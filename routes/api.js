@@ -3,6 +3,8 @@ var router = express.Router();
 var fs = require('fs');
 var parse = require('csv-parse');
 var path = require('path');
+var ExifImage = require('exif').ExifImage;
+var images=[];
 
 /* GET home page. */
 router.get('/guest', function(req, res, next) {	
@@ -27,10 +29,31 @@ router.post('/login', function(req, res, next){
 	}
 });
 router.get('/photos', function(req,res,next) {
-	fs.readdir(path.resolve(__dirname+'/../public/img/'),function(err,files){
-		res.send(files.map(function(link,index){
-			return {_id:index,url:link};
-		}));
-;	});
+		fs.readdir(path.resolve(__dirname+'/../public/img/'),function(err,files){
+			images = files.filter(function(image){
+				splitImage = image.split('_');
+				if(splitImage[splitImage.length-1] == 'original')
+					return false;
+				else
+					return true;
+			}).map(function(link,index,origArray){
+				var newImage = {_id:index,url:link};
+				return newImage;
+			});
+			res.send(images);
+		});
+});
+router.get('/photo/:id', function(req,res,next){
+	new ExifImage({image:path.resolve(__dirname+'/../public/img/'+images[req.params.id].url)},function(err,exifData){
+		if (err)
+			console.log(err);
+		else{
+			if(exifData.exif.UserComment){
+				res.send({comment: exifData.exif.UserComment.toString().slice(5)});
+			}else{
+				res.send({comment: 'No Caption was Found'});
+			}
+		}
+	})
 });
 module.exports = router;

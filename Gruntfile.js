@@ -20,7 +20,8 @@ module.exports = function(grunt){
 					{cwd:'bower_components/angular-timer/dist/',expand: true,src:['**/*.min.js'],dest:'public/js'},
 					{cwd:'bower_components/humanize-duration/',expand: true,src:['**/*.js'],dest:'public/js'},
 					{cwd:'bower_components/momentjs/min/',expand: true,src:['**/*.min.js','!moment-with-locales.min.js'],dest:'public/js'},
-					{cwd:'bower_components/angular-deckgrid/',expand: true,src:['*.js'],dest:'public/js'}
+					{cwd:'bower_components/angular-deckgrid/',expand: true,src:['*.js'],dest:'public/js'},
+					{cwd:'bower_components/exif-js/',expand: true,src:['*.js'],dest:'public/js'}
 				]
 			},
 			misc: {

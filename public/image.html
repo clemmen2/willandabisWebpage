@@ -1,5 +1,4 @@
 <div ng-controller='photoCtrl as photo'>
-<div ng-repeat='photo in photo.photos'>
-<img ng-src='img/{{photo.url}}' class="img-thumbnail">
-</div>
+<h3>{{photo.photo.comment}}</h3>
+<img ng-src='img/{{photo.photo.url}}' class="img-thumbnail">
 </div>
