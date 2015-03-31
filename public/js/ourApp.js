@@ -110,7 +110,7 @@ angular.module('ourApp', ['ngRoute','timer','akoenig.deckgrid'])
 		$location.path('/guest/'+id)
 	};
 }])
-.controller('photoCtrl',['$routeParams','photos',function($routeParams,photos){
+.controller('photoCtrl',['$routeParams','photos','$location',function($routeParams,photos,$location){
 	var that = this;
 	photos.getPhotos(function(images){
 		that.photo = images.filter(function(image){
@@ -118,6 +118,9 @@ angular.module('ourApp', ['ngRoute','timer','akoenig.deckgrid'])
 				return true;
 			}
 		})[0];
+		if (!that.photo){
+			$location.path('/error')
+		}
 	})
 	photos.getPhotoCom($routeParams.photoId,function(imageCaption){
 		that.photo.comment = imageCaption.comment;
