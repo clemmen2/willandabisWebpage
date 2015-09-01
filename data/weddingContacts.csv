@@ -1,5 +1,5 @@
 _id,familyId,lastName,firstName,brideGroom,relation,position,phone,address,state,city,zip,RSVP
-1,23,Versluys,DawnMarie,Bride,Family,Photographer,8434720848,937 South Whitehall Cr.,SC,Florence,29501,FALSE
+1,23,Versluys,DawnMarie,Bride,Family,Guest,8434720848,937 South Whitehall Cr.,SC,Florence,29501,FALSE
 2,23,Versluys,Nat,Bride,Family,Officiant,8436172557,937 South Whitehall Cr.,SC,Florence,29501,FALSE
 3,6,Canter,Jessica ,Bride,Friend,Maid of Honor,8436105931,,,,,FALSE
 4,8,Dixon,Lila,Groom,Family,Jr Bridesmaid,,612 Ivanhoe Drive,SC,Florence,29505,FALSE
